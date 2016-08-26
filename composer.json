@@ -7,7 +7,11 @@
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
-        "zizaco/entrust": "5.2.x-dev"
+        "zizaco/entrust": "5.2.x-dev",
+        "infyomlabs/laravel-generator": "dev-master",
+        "laravelcollective/html": "5.2.*",
+        "infyomlabs/core-templates": "dev-master",
+        "infyomlabs/generator-builder": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
