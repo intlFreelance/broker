@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>Brokerage Track</title>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
@@ -38,7 +38,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Laravel
+                    Brokerage Track
                 </a>
             </div>
 
@@ -55,6 +55,9 @@
                         <li><a href="{{ url('/login') }}">Login</a></li>
                         <li><a href="{{ url('/register') }}">Register</a></li>
                     @else
+                        @if (Auth::user()->hasRole('admin'))
+                          <li><a href="{{ url('/producers') }}">Producers</a></li>
+                        @endif
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 {{ Auth::user()->name }} <span class="caret"></span>
@@ -69,9 +72,9 @@
             </div>
         </div>
     </nav>
-
-    @yield('content')
-
+    <div class="container">
+        @yield('content')
+    </div>
     <!-- JavaScripts -->
     <script src="{{ elixir('js/app.js') }}"></script>
 </body>

@@ -23,6 +23,7 @@ elixir(function(mix) {
     ], 'public/js/app.js');
 
     mix.copy('bower_components/components-font-awesome/fonts', 'public/build/fonts');
+    mix.copy('bower_components/bootstrap/fonts', 'public/build/fonts');
 
     mix.version(["css/app.css", "js/app.js"]);
 });
