@@ -56,3 +56,15 @@ Route::get('field_template', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuil
 Route::post('generator_builder/generate', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@generate');
 
 Route::resource('producers', 'ProducerController');
+
+Route::resource('clients', 'ClientController');
+
+Route::resource('clients', 'ClientController');
+
+Route::resource('clients', 'ClientController');
+
+Route::resource('clients', 'ClientController');
+
+Route::resource('contracts', 'ContractController');
+
+Route::resource('contractPayments', 'ContractPaymentController');

@@ -14,3 +14,15 @@
 
 
 Route::resource('producers', 'ProducerAPIController');
+
+Route::resource('clients', 'ClientAPIController');
+
+Route::resource('clients', 'ClientAPIController');
+
+Route::resource('clients', 'ClientAPIController');
+
+Route::resource('clients', 'ClientAPIController');
+
+Route::resource('contracts', 'ContractAPIController');
+
+Route::resource('contractPayments', 'ContractPaymentAPIController');

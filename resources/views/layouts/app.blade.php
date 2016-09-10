@@ -56,7 +56,9 @@
                         <li><a href="{{ url('/register') }}">Register</a></li>
                     @else
                         @if (Auth::user()->hasRole('admin'))
+                          <li><a href="{{ url('/contracts') }}">Contracts</a></li>
                           <li><a href="{{ url('/producers') }}">Producers</a></li>
+                          <li><a href="{{ url('/clients') }}">Clients</a></li>
                         @endif
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -77,5 +79,6 @@
     </div>
     <!-- JavaScripts -->
     <script src="{{ elixir('js/app.js') }}"></script>
+    @yield('js')
 </body>
 </html>

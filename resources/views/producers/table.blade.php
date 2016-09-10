@@ -3,7 +3,7 @@
         <th>First Name</th>
         <th>Last Name</th>
         <th>Email</th>
-        <th colspan="3">Action</th>
+        <th colspan="3" class="text-right">Action</th>
     </thead>
     <tbody>
     @foreach($producers as $producer)
@@ -11,7 +11,7 @@
             <td>{!! $producer->first_name !!}</td>
             <td>{!! $producer->last_name !!}</td>
             <td>{!! $producer->email !!}</td>
-            <td>
+            <td class="text-right">
                 {!! Form::open(['route' => ['producers.destroy', $producer->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
                     <a href="{!! route('producers.show', [$producer->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
