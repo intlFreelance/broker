@@ -11,6 +11,8 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use DB;
+use App\Models\Producer;
 
 class ClientController extends InfyOmBaseController
 {
@@ -44,7 +46,8 @@ class ClientController extends InfyOmBaseController
      */
     public function create()
     {
-        return view('clients.create');
+        $data['producer_array'] = Producer::select(DB::raw('CONCAT(`first_name`," ",`last_name`) as name'),'id')->lists('name','id');
+        return view('clients.create',$data);
     }
 
     /**
@@ -94,15 +97,15 @@ class ClientController extends InfyOmBaseController
      */
     public function edit($id)
     {
-        $client = $this->clientRepository->findWithoutFail($id);
-
-        if (empty($client)) {
+        $data['client'] = $this->clientRepository->findWithoutFail($id);
+        $data['producer_array'] = Producer::select(DB::raw('CONCAT(`first_name`," ",`last_name`) as name'),'id')->lists('name','id');
+        if (empty($data['client'])) {
             Flash::error('Client not found');
 
             return redirect(route('clients.index'));
         }
 
-        return view('clients.edit')->with('client', $client);
+        return view('clients.edit', $data);
     }
 
     /**

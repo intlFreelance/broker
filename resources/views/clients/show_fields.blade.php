@@ -40,3 +40,14 @@
     <p>{!! $client->contact_id !!}</p>
 </div>
 
+<!-- Producer Id Field -->
+<div class="form-group">
+    {!! Form::label('producer_id', 'Producer Id:') !!}
+    <p>{!! $client->producer_id !!}</p>
+</div>
+
+<!-- Producer Id Field -->
+<div class="form-group">
+    {!! Form::label('start_date', 'Start Date:') !!}
+    <p>{!! $client->start_date !!}</p>
+</div>

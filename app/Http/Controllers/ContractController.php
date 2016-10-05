@@ -104,9 +104,7 @@ class ContractController extends InfyOmBaseController
     {
         $data['contract'] = $this->contractRepository->findWithoutFail($id);
         $data['clients'] = Client::lists('name', 'id');
-        $data['producers'] = Producer::select(
-          DB::raw("CONCAT(first_name ,' ', last_name) AS full_name, id")
-        )->lists('full_name', 'id');
+        $data['producers'] = Producer::select(DB::raw('CONCAT(`first_name`," ",`last_name`) as name'),'id')->lists('name','id');
         if (empty($data['contract'])) {
             Flash::error('Contract not found');
 
@@ -163,5 +161,9 @@ class ContractController extends InfyOmBaseController
         Flash::success('Contract deleted successfully.');
 
         return redirect(route('contracts.index'));
+    }
+
+    public function getJson(){
+      echo $this->contractRepository->all();
     }
 }

@@ -59,12 +59,8 @@ Route::resource('producers', 'ProducerController');
 
 Route::resource('clients', 'ClientController');
 
-Route::resource('clients', 'ClientController');
-
-Route::resource('clients', 'ClientController');
-
-Route::resource('clients', 'ClientController');
-
 Route::resource('contracts', 'ContractController');
+
+Route::get('contracts/json/all', 'ContractController@getJson');
 
 Route::resource('contractPayments', 'ContractPaymentController');

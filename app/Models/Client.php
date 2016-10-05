@@ -53,7 +53,7 @@ class Client extends Model
     use SoftDeletes;
 
     public $table = 'clients';
-    
+
 
     protected $dates = ['deleted_at'];
 
@@ -64,7 +64,9 @@ class Client extends Model
         'city',
         'state',
         'zip',
-        'contact_id'
+        'contact_id',
+        'producer_id',
+        'start_date'
     ];
 
     /**
@@ -87,6 +89,6 @@ class Client extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 }

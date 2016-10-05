@@ -9,7 +9,7 @@
 
     @include('core-templates::common.errors')
 
-    <div class="row">
+    <div class="row" ng-app="myApp" ng-controller="ContractCtrl">
         {!! Form::open(['route' => 'contracts.store']) !!}
 
             @include('contracts.fields')
@@ -19,5 +19,5 @@
 @endsection
 
 @section('js')
-<script src="/js/contract.js"></script>
+<script src="/js/contracts.js"></script>
 @endsection

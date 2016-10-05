@@ -9,11 +9,15 @@
 
         @include('core-templates::common.errors')
 
-        <div class="row">
+        <div class="row" ng-app="myApp" ng-controller="ContractCtrl" ng-init="getTerms(1)">
             {!! Form::model($contract, ['route' => ['contracts.update', $contract->id], 'method' => 'patch']) !!}
 
             @include('contracts.fields')
 
             {!! Form::close() !!}
         </div>
+@endsection
+
+@section('js')
+<script src="/js/contracts.js"></script>
 @endsection

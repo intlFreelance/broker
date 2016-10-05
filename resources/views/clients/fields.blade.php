@@ -28,6 +28,23 @@
     {!! Form::number('zip', null, ['class' => 'form-control']) !!}
 </div>
 
+<div class="row">
+    <div class="col-sm-12">
+        <h3 class="pull-left" style="margin-left:20px;">Account Information</h3>
+    </div>
+</div>
+<!-- Producer Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('producer', 'Producer:') !!}
+    {!! Form::select('producer_id', $producer_array, null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Account Start Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('start_date', 'Start Date:') !!}
+    {!! Form::date('start_date', null, ['class' => 'form-control']) !!}
+</div>
+
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
     {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
