@@ -48,6 +48,9 @@ Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
 Route::post('password/reset', 'Auth\PasswordController@postReset');
 
 Route::get('/home', 'HomeController@index');
+Route::get('/reporting/payments', 'ReportingController@payments');
+Route::get('/reporting/tracking', 'ReportingController@tracking');
+Route::get('/reporting/producers', 'ReportingController@producers');
 
 Route::get('generator_builder', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@builder');
 
@@ -60,6 +63,10 @@ Route::resource('producers', 'ProducerController');
 Route::resource('clients', 'ClientController');
 
 Route::resource('contracts', 'ContractController');
+
+Route::get('payment/create/{id}', 'PaymentController@create');
+Route::resource('payments', 'PaymentController');
+
 
 Route::get('contracts/json/all', 'ContractController@getJson');
 

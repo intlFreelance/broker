@@ -36,7 +36,7 @@
           End Date: <input type="date" name="end_date"  ng-model="term.end_date" class="form-control"/>
         </div>
         <div class="col-sm-3">
-          Amount:
+          Projected Amount:
           <div class="input-group">
             <span class="input-group-addon">$</span>
             <input type="text" name="amount" class="form-control" ng-model="term.amount" placeholder="500.00">
@@ -109,8 +109,8 @@
         <h4 class="modal-title" id="myModalLabel">Add Provider</h4>
       </div>
       <div class="modal-body">
-        {!! Form::label('new_producer', 'New Producer:') !!}
-        <input type="text" name="new_producer" class="form-control" placeholder="New Producer"/>
+        {!! Form::label('new_producer', 'New Provider:') !!}
+        <input type="text" name="new_producer" class="form-control" placeholder="New Provider"/>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

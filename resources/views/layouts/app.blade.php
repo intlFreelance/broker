@@ -59,6 +59,14 @@
                           <li><a href="{{ url('/contracts') }}">Contracts</a></li>
                           <li><a href="{{ url('/producers') }}">Producers</a></li>
                           <li><a href="{{ url('/clients') }}">Clients</a></li>
+                          <li><a href="{{ url('/payments') }}">Payments</a></li>
+                          <li><a href="{{ url('/reporting') }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Reporting</a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ url('/reporting/payments') }}">Payments</a></li>
+                                <li><a href="{{ url('/reporting/producers') }}">Producers</a></li>
+                                <li><a href="{{ url('/reporting/tracking') }}">Tracking</a></li>
+                            </ul>
+                          </li>
                         @endif
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
