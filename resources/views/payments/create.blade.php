@@ -9,7 +9,7 @@
 
     @include('core-templates::common.errors')
 
-    <div class="row" ng-app="myApp" ng-controller="PaymentCtrl">
+    <div class="row" ng-app="myApp">
         {!! Form::open(['route' => 'payments.store']) !!}
 
             @include('payments.fields')

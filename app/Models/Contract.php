@@ -77,12 +77,17 @@ class Contract extends Model
 
     public function client()
     {
-        return $this->hasOne('App\Models\Client','id','client_id');
+        return $this->belongsTo('App\Models\Client');
     }
 
     public function contract_payments()
     {
         return $this->hasMany('App\Models\ContractPayment');
+    }
+
+    public function payments()
+    {
+        return $this->hasMany('App\Models\Payment');
     }
 
     public function producer()

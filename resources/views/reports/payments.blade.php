@@ -10,7 +10,7 @@
           <input type="text" id="search" class="form-control"  style="height:40px;">
         </div>
 
-        <div class="pull-right"><button type="button" class="btn btn-primary" style="margin-top:25px;line-height: 0.4; margin-right:5px;"><span class="glyphicon glyphicon-export"></span> Export to CSV</button></div>
+        <div class="pull-right"><a href="{{ url('reporting/payments/export') }}" class="btn btn-primary" style="margin-top:25px;line-height: 0.4; margin-right:5px;"><span class="glyphicon glyphicon-export"></span> Export to CSV</a></div>
 
         <div class="clearfix"></div>
 

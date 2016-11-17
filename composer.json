@@ -13,7 +13,8 @@
         "infyomlabs/core-templates": "dev-master",
         "infyomlabs/generator-builder": "dev-master",
         "infyomlabs/swagger-generator": "dev-master",
-        "jlapp/swaggervel": "dev-master"
+        "jlapp/swaggervel": "dev-master",
+        "league/csv": "^8.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

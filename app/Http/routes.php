@@ -51,6 +51,9 @@ Route::get('/home', 'HomeController@index');
 Route::get('/reporting/payments', 'ReportingController@payments');
 Route::get('/reporting/tracking', 'ReportingController@tracking');
 Route::get('/reporting/producers', 'ReportingController@producers');
+Route::get('/reporting/payments/export', 'ReportingController@payment_export');
+Route::get('/reporting/producers/export', 'ReportingController@producers_export');
+Route::get('/reporting/tracking/export', 'ReportingController@tracking_export');
 
 Route::get('generator_builder', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@builder');
 

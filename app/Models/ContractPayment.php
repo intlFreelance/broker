@@ -87,4 +87,13 @@ class ContractPayment extends Model
     public static $rules = [
 
     ];
+
+    public function contract()
+    {
+        return $this->belongsTo('App\Models\Contract');
+    }
+    public function producer()
+    {
+        return $this->belongsTo('App\Models\Producer');
+    }
 }

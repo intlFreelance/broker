@@ -11,11 +11,7 @@
         <tr>
             <td>{!! $contract->client->name !!}</td>
             <td>{!! $contract->producer->last_name  !!}, {!! $contract->producer->first_name  !!}</td>
-            @if($contract->client->name == "ABC Company")
-              <td>11/09/2016</td>
-            @else
-              <td>Never</td>
-            @endif
+            <td>{!! isset($contract->payments->first()->payment_date)?date("m/d/Y",strtotime($contract->payments->first()->payment_date)):'Never' !!}</td>
             <td class="text-right">
                 {!! Form::open(['route' => ['contracts.destroy', $contract->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

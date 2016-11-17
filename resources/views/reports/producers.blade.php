@@ -7,7 +7,7 @@
           <div class="pull-right" style="padding: 10px;"> to </div> <input type="date" id="from" class="pull-right form-control col-md-3"  style="height:40px;width: 20%;"  value="2016-11-01">
         </div>
 
-        <div class="pull-right"><button type="button" class="btn btn-primary" style="line-height: 0.4; margin-right:5px;"><span class="glyphicon glyphicon-export"></span> Export to CSV</button></div>
+        <div class="pull-right"><a href="{{ url('reporting/producers/export') }}" class="btn btn-primary" style="line-height: 0.4; margin-right:5px;"><span class="glyphicon glyphicon-export"></span> Export to CSV</a></div>
 
         <div class="clearfix"></div>
 

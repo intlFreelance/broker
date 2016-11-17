@@ -43,7 +43,7 @@ class Producer extends Model
     use SoftDeletes;
 
     public $table = 'producers';
-    
+
 
     protected $dates = ['deleted_at'];
 
@@ -71,6 +71,11 @@ class Producer extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
+
+    public function payments()
+    {
+        return $this->hasMany('App\Models\Payment');
+    }
 }

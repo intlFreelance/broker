@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Repositories\ContractRepository;
+use App\Models\Payment;
 use Flash;
 
 class PaymentController extends Controller
@@ -46,6 +47,14 @@ class PaymentController extends Controller
 
     public function store(Request $request)
     {
+        $save = array(
+          "contract_id" => $request->contract_id,
+          "client_id" => $request->client_id,
+          "producer_id" => $request->producer_id,
+          "amount" => str_replace('$','',$request->amount),
+          "payment_date" => $request->payment_date,
+        );
+        Payment::create($save);
         Flash::success('Payment saved successfully.');
 
         return redirect(route('payments.index'));
