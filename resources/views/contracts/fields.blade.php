@@ -1,13 +1,13 @@
 <!-- Address Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('client_id', 'Client:') !!}
-    {!! Form::select('client_id',$clients, null, ['class' => 'form-control']) !!}
+    {!! Form::select('client_id',$clients, null, ['class' => 'form-control','ng-model' => 'client_id']) !!}
 </div>
 
 <!-- Name Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('producer', 'Primary Producer:') !!}
-    {!! Form::select('producer_id',$producers, null, ['class' => 'form-control']) !!}
+    {!! Form::select('producer_id',$producers, null, ['class' => 'form-control','ng-model' => 'primary_producer']) !!}
 </div>
 
 <div class="form-group col-sm-12 ">
@@ -15,17 +15,10 @@
     <div ng-repeat="term in terms" class="row terms well">
       <div class="row">
         <div class="col-sm-6">
-          Provider: <select class="form-control" name="provider" ng-model="term.provider" ng-change="new_producer(term.provider)">
-                      <option>Blue Cross Blue Shield</option>
-                      <option value="new">+ New Provider</option>
-                    </select>
+          Provider: <select class="form-control" name="provider" ng-model="term.provider" ng-change="new_producer(term.provider)" ng-options="provider as provider.label for provider in providers track by provider.value"></select>
         </div>
         <div class="col-sm-6">
-          Services: <select class="form-control" name="services" ng-model="term.service" ng-change="new_service(term.service)">
-                    <option>Service 1</option>
-                    <option>Medical</option>
-                    <option value="new">+ New Service</option>
-                    </select>
+          Services: <select class="form-control" name="services" ng-model="term.service" ng-change="new_service(term.service)" ng-options="service as service.label for service in services track by service.value"></select>
         </div>
       </div>
       <div class="row">
@@ -55,7 +48,7 @@
           Estimated Total: <div class="form-control disabled" style="background-color:#DDD; text-align:right;">$<%term.amount*term.frequency%></div>
         </div>
         <div class="col-sm-2">
-          Producer: {!! Form::select('producer_id',$producers, null, ['class' => 'form-control']) !!}
+          Producer: {!! Form::select('producer_id',$producers, null, ['class' => 'form-control','ng-model' => 'term.producer_id']) !!}
         </div>
         <div class="col-sm-2">
           Producer Split:
@@ -96,7 +89,7 @@
 </div>
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
-    {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
+    <a href="#" ng-click="logAction()" class="btn btn-primary">Save</a>
     <a href="{!! route('contracts.index') !!}" class="btn btn-default">Cancel</a>
 </div>
 
@@ -110,18 +103,18 @@
       </div>
       <div class="modal-body">
         {!! Form::label('new_producer', 'New Provider:') !!}
-        <input type="text" name="new_producer" class="form-control" placeholder="New Provider"/>
+        <input type="text" name="new_producer" class="form-control" placeholder="New Provider" ng-model="new_pro_name"/>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary" ng-click="saveProvider()">Save changes</button>
       </div>
     </div>
   </div>
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="myPro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="myServ" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -130,11 +123,11 @@
       </div>
       <div class="modal-body">
         {!! Form::label('new_producer', 'New Service:') !!}
-        <input type="text" name="new_service" class="form-control" placeholder="New Service"/>
+        <input type="text" name="new_service" class="form-control" placeholder="New Service" ng-model="new_service_name"/>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary" ng-click="saveService()">Save changes</button>
       </div>
     </div>
   </div>

@@ -69,5 +69,7 @@ Route::resource('payments', 'PaymentController');
 
 
 Route::get('contracts/json/all', 'ContractController@getJson');
+Route::post('contracts/json/save', 'ContractController@postJson');
+Route::post('contract_payments/json/save', 'ContractPaymentController@postJson');
 
 Route::resource('contractPayments', 'ContractPaymentController');

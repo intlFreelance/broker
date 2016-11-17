@@ -166,4 +166,19 @@ class ContractController extends InfyOmBaseController
     public function getJson(){
       echo $this->contractRepository->all();
     }
+
+    public function getSuccess(){
+      $this->contractRepository->pushCriteria(new RequestCriteria($request));
+      $contracts = $this->contractRepository->all();
+
+      return view('contracts.index')
+          ->with('contracts', $contracts);
+    }
+
+    public function postJson(Request $request){
+      $input = $request->all();
+      $contract = $this->contractRepository->create($input);
+      Flash::success('Contract Added successfully');
+      echo $contract->id;
+    }
 }

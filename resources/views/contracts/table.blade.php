@@ -2,6 +2,7 @@
     <thead>
         <th>Client</th>
         <th>Producer</th>
+        <th class="text-center">Renewal Month</th>
         <th colspan="3" class="text-right">Action</th>
     </thead>
     <tbody>
@@ -9,6 +10,7 @@
         <tr>
             <td>{!! $contract->client->name !!}</td>
             <td>{!! $contract->producer->last_name  !!}, {!! $contract->producer->first_name  !!}</td>
+            <td class="text-center">{!! isset($contract->contract_payments->first()->end_date)?date('m/Y',strtotime($contract->contract_payments->first()->end_date)):''  !!}</td>
             <td class="text-right">
                 {!! Form::open(['route' => ['contracts.destroy', $contract->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

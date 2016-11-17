@@ -80,6 +80,11 @@ class Contract extends Model
         return $this->hasOne('App\Models\Client','id','client_id');
     }
 
+    public function contract_payments()
+    {
+        return $this->hasMany('App\Models\ContractPayment');
+    }
+
     public function producer()
     {
         return $this->hasOne('App\Models\Producer','id','producer_id');

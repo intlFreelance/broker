@@ -153,4 +153,10 @@ class ContractPaymentController extends InfyOmBaseController
 
         return redirect(route('contractPayments.index'));
     }
+
+    public function postJson(Request $request){
+      $input = $request->all();
+      $contract_payment = $this->contractPaymentRepository->create($input);
+      echo $contract_payment->id;
+    }
 }

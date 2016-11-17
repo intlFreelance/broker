@@ -51,7 +51,7 @@ class ContractPayment extends Model
     use SoftDeletes;
 
     public $table = 'contract_payments';
-    
+
 
     protected $dates = ['deleted_at'];
 
@@ -61,7 +61,11 @@ class ContractPayment extends Model
         'start_date',
         'end_date',
         'amount',
-        'frequency'
+        'frequency',
+        'producer_id',
+        'producer_split',
+        'provider',
+        'service'
     ];
 
     /**
@@ -81,6 +85,6 @@ class ContractPayment extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 }

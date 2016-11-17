@@ -10,11 +10,11 @@
     @include('core-templates::common.errors')
 
     <div class="row" ng-app="myApp" ng-controller="ContractCtrl">
-        {!! Form::open(['route' => 'contracts.store']) !!}
+
 
             @include('contracts.fields')
 
-        {!! Form::close() !!}
+        
     </div>
 @endsection
 
