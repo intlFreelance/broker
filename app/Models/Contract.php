@@ -80,9 +80,9 @@ class Contract extends Model
         return $this->belongsTo('App\Models\Client');
     }
 
-    public function contract_payments()
+    public function terms()
     {
-        return $this->hasMany('App\Models\ContractPayment');
+        return $this->hasMany('App\Models\Term');
     }
 
     public function payments()

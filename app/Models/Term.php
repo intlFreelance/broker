@@ -33,4 +33,8 @@ class Term extends Model
     {
         return $this->belongsTo('App\Models\Contract');
     }
+    public function producer()
+    {
+        return $this->belongsTo('App\Models\Producer');
+    }
 }

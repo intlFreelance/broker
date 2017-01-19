@@ -64,7 +64,7 @@ app.controller('ContractCtrl', function($scope, $http, $window) {
           data.producer_split = value.split;
           data.provider = value.provider.value;
           data.service = value.service.value;
-          $http.post('/contract_payments/json/save',data).then(function(res){
+          $http.post('/terms/save',data).then(function(res){
             console.log(res.data);
           });
         });

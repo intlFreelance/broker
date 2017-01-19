@@ -70,9 +70,12 @@ Route::resource('contracts', 'ContractController');
 Route::get('payment/create/{id}', 'PaymentController@create');
 Route::resource('payments', 'PaymentController');
 
+Route::get('providers/json/all', 'ProviderController@getJson');
+Route::get('services/json/all', 'ServiceController@getJson');
+
 
 Route::get('contracts/json/all', 'ContractController@getJson');
 Route::post('contracts/json/save', 'ContractController@postJson');
-Route::post('contract_payments/json/save', 'ContractPaymentController@postJson');
+Route::post('terms/json/save', 'TermController@postJson');
 
-Route::resource('contractPayments', 'ContractPaymentController');
+Route::resource('terms', 'TermController');
