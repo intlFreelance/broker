@@ -1,6 +1,7 @@
 <table class="table table-responsive sorter" id="contracts-table">
     <thead>
         <th>Client</th>
+        <th>Service</th>
         <th>Producer</th>
         <th>Amount Expected</th>
         <th>Amount Paid</th>
@@ -28,6 +29,8 @@
       }
       ?>
           <td>{{ isset($contract_payment->contract->client->name)?$contract_payment->contract->client->name:'' }}</td>
+          <td>{{ isset($contract_payment->contract->service)?$contract_payment->contract->service:'' }}</td>
+          <td>{{$contract_payment->producer->last_name}}, {{$contract_payment->producer->first_name}}</td>
           <td>{{$contract_payment->producer->last_name}}, {{$contract_payment->producer->first_name}}</td>
           <td>${{$contract_payment->amount}}</td>
           <?php $expected_total += $contract_payment->amount; ?>

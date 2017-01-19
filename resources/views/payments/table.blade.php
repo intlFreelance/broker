@@ -1,6 +1,7 @@
 <table class="table table-responsive" id="contracts-table">
     <thead>
         <th>Client</th>
+        <th>Service</th>
         <th>Producer</th>
         <th>Last Payment Date</th>
 
@@ -10,6 +11,7 @@
     @foreach($contracts as $contract)
         <tr>
             <td>{!! $contract->client->name !!}</td>
+            <td></td>
             <td>{!! $contract->producer->last_name  !!}, {!! $contract->producer->first_name  !!}</td>
             <td>{!! isset($contract->payments->first()->payment_date)?date("m/d/Y",strtotime($contract->payments->first()->payment_date)):'Never' !!}</td>
             <td class="text-right">
