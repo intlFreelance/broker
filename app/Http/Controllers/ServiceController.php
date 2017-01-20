@@ -20,11 +20,6 @@ class ServiceController extends Controller
          echo $services;
      }
 
-    public function list()
-    {
-        //
-    }
-
     /**
      * Show the form for creating a new resource.
      *
