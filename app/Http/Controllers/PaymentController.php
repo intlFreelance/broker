@@ -59,4 +59,9 @@ class PaymentController extends Controller
 
         return redirect(route('payments.index'));
     }
+
+    public function multi(){
+      $data = [];
+      return view('payments.multi',$data);
+    }
 }

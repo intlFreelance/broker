@@ -9,12 +9,12 @@
 
     @include('core-templates::common.errors')
 
-    <div class="row" ng-app="myApp" ng-controller="ContractCtrl">
+    <div class="row" ng-app="myApp" ng-controller="ContractCtrl" ng-init="startLoad()">
 
 
             @include('contracts.fields')
 
-        
+
     </div>
 @endsection
 

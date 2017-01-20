@@ -43,7 +43,11 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $service = new Service;
+      //echo $request->all();exit;
+      $service->name = $request->input('name');
+      $service->save();
+      echo $service;
     }
 
     /**

@@ -39,6 +39,12 @@ class ClientController extends InfyOmBaseController
             ->with('clients', $clients);
     }
 
+    public function getJson()
+    {
+        $clients = $this->clientRepository->all();
+        echo $clients;
+    }
+
     /**
      * Show the form for creating a new Client.
      *

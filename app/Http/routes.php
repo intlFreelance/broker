@@ -62,20 +62,25 @@ Route::get('field_template', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuil
 Route::post('generator_builder/generate', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@generate');
 
 Route::resource('producers', 'ProducerController');
+Route::get('producers/json/all', 'ProducerController@getJson');
 
 Route::resource('clients', 'ClientController');
+Route::get('clients/json/all', 'ClientController@getJson');
 
 Route::resource('contracts', 'ContractController');
 
+Route::get('payment/multi', 'PaymentController@multi');
 Route::get('payment/create/{id}', 'PaymentController@create');
 Route::resource('payments', 'PaymentController');
 
 Route::get('providers/json/all', 'ProviderController@getJson');
 Route::get('services/json/all', 'ServiceController@getJson');
 
-
+Route::get('contracts/{contract_id}/terms/', 'TermController@getJsonContract');
 Route::get('contracts/json/all', 'ContractController@getJson');
 Route::post('contracts/json/save', 'ContractController@postJson');
 Route::post('terms/json/save', 'TermController@postJson');
 
 Route::resource('terms', 'TermController');
+Route::resource('services', 'ServiceController');
+Route::resource('providers', 'ProviderController');

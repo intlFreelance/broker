@@ -9,7 +9,7 @@
 
         @include('core-templates::common.errors')
 
-        <div class="row" ng-app="myApp" ng-controller="ContractCtrl" ng-init="getTerms(1)">
+        <div class="row" ng-app="myApp" ng-controller="ContractCtrl" ng-init="startLoad('$scope.getTerms({{$contract->id}});$scope.setBase({{$contract->client_id}},{{$contract->producer_id}});')">
             {!! Form::model($contract, ['route' => ['contracts.update', $contract->id], 'method' => 'patch']) !!}
 
             @include('contracts.fields')

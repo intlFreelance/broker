@@ -37,6 +37,12 @@ class ProducerController extends InfyOmBaseController
             ->with('producers', $producers);
     }
 
+    public function getJson()
+    {
+        $producers = $this->producerRepository->all();
+        echo $producers;
+    }
+
     /**
      * Show the form for creating a new Producer.
      *

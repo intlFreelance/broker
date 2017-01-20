@@ -1,13 +1,13 @@
 <!-- Address Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('client_id', 'Client:') !!}
-    {!! Form::select('client_id',$clients, null, ['class' => 'form-control','ng-model' => 'client_id']) !!}
+    <select class="form-control" name="client_id" id="client_id" ng-model="client_id" ng-options="client as client.name for client in clients | orderBy:'id' track by client.id"></select>
 </div>
 
 <!-- Name Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('producer', 'Primary Producer:') !!}
-    {!! Form::select('producer_id',$producers, null, ['class' => 'form-control','ng-model' => 'primary_producer']) !!}
+    <select class="form-control" name="producer_id" id="producer_id" ng-model="primary_producer" ng-options="producer as producer.first_name+' '+producer.last_name for producer in producers | orderBy:'id' track by producer.id"></select>
 </div>
 
 <div class="form-group col-sm-12 ">
@@ -15,10 +15,10 @@
     <div ng-repeat="term in terms" class="row terms well">
       <div class="row">
         <div class="col-sm-6">
-          Provider: <select class="form-control" name="provider" ng-model="term.provider" ng-change="new_producer(term.provider)" ng-options="provider as provider.label for provider in providers track by provider.value"></select>
+          Provider: <select class="form-control" name="provider" ng-model="term.provider" ng-change="new_producer(term.provider)" ng-options="provider as provider.name for provider in providers | orderBy:'id' track by provider.id"></select>
         </div>
         <div class="col-sm-6">
-          Services: <select class="form-control" name="services" ng-model="term.service" ng-change="new_service(term.service)" ng-options="service as service.label for service in services track by service.value"></select>
+          Services: <select class="form-control" name="services" ng-model="term.service" ng-change="new_service(term.service)" ng-options="service as service.name for service in services | orderBy:'id' track by service.id"></select>
         </div>
       </div>
       <div class="row">
@@ -45,10 +45,11 @@
       </div>
       <div class="row">
         <div class="col-sm-2">
-          Estimated Total: <div class="form-control disabled" style="background-color:#DDD; text-align:right;">$<%term.amount*term.frequency%></div>
+          Estimated Total: <div class="form-control disabled" style="background-color:#DDD; text-align:right;">$<%term.amount*term.frequency | number:2 %></div>
         </div>
         <div class="col-sm-2">
-          Producer: {!! Form::select('producer_id',$producers, null, ['class' => 'form-control','ng-model' => 'term.producer_id']) !!}
+          Producer:
+          <select class="form-control" name="producers" id="producer_id" ng-model="term.producer1_id" ng-options="producer as producer.first_name+' '+producer.last_name for producer in producers | orderBy:'id' track by producer.id"></select>
         </div>
         <div class="col-sm-2">
           Producer Split:
@@ -59,11 +60,11 @@
         </div>
         <div class="col-sm-2">
           Producer Total:
-          <div class="form-control disabled" style="background-color:#DDD; text-align:right;">$<%(term.amount*term.frequency)*(0.01*term.split)%></div>
+          <div class="form-control disabled" style="background-color:#DDD; text-align:right;">$<%(term.amount*term.frequency)*(0.01*term.split) | number:2 %></div>
         </div>
         <div class="col-sm-2">
           Remaining Total:
-          <div class="form-control disabled" style="background-color:#DDD; text-align:right;">$<%(term.amount*term.frequency)*(0.01*(100-term.split-(term.split2*term.second_pro)))%></div>
+          <div class="form-control disabled" style="background-color:#DDD; text-align:right;">$<%(term.amount*term.frequency)*(0.01*(100-term.split-(term.split2*term.second_pro))) | number:2 %></div>
         </div>
         <div class="col-sm-2" ng-hide="term.second_pro != '0'">
           <a href="#" class="btn btn-default btn-sm" style="margin-top:26px;" ng-click="term.second_pro=1"><i class="fa fa-plus"></i> Add Second Producer</a>
@@ -71,7 +72,8 @@
       </div>
       <div class="row" ng-show="term.second_pro != '0'">
         <div class="col-sm-2 col-sm-offset-2">
-          Producer: {!! Form::select('producer_id',$producers, null, ['class' => 'form-control']) !!}
+          Producer 2:
+          <select class="form-control" name="producers" id="producer_id2" ng-model="term.producer2_id" ng-options="producer as producer.first_name+' '+producer.last_name for producer in producers | orderBy:'id' track by producer.id"></select>
         </div>
         <div class="col-sm-2">
           Producer 2 Split:
@@ -82,7 +84,7 @@
         </div>
         <div class="col-sm-2">
           Producer 2 Total:
-          <div class="form-control disabled" style="background-color:#DDD; text-align:right;">$<%(term.amount*term.frequency)*(0.01*term.split2)%></div>
+          <div class="form-control disabled" style="background-color:#DDD; text-align:right;">$<%(term.amount*term.frequency)*(0.01*term.split2) | number:2 %></div>
         </div>
       </div>
     </div>

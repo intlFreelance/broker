@@ -38,7 +38,11 @@ class ProviderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $provider = new Provider;
+      //echo $request->all();exit;
+      $provider->name = $request->input('name');
+      $provider->save();
+      echo $provider;
     }
 
     /**
